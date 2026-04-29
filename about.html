@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About — AMUX Virtual Industry</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* ===============================
+        ENHANCED CORE STYLES
+        =============================== */
+        :root {
+            --glass: rgba(255, 255, 255, 0.8);
+            --brand-light: #f0f4ff;
+        }
+
+        /* Section Transitions */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* WHY SECTION - Asymmetric Grid */
+        .why-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .problem-cards {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+
+        .problem-card {
+            background: #3749ee;
+            border-radius: 30px;
+            padding: 24px;
+            font-size: .9rem;
+            font-weight: 600;
+            color: var(--text);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .problem-card:hover {
+            transform: translateX(12px);
+            background: var(--brand);
+            color: #fff;
+        }
+
+        /* VISION - The Spotlight */
+        .vision-box {
+            background: var(--grad);
+            color: #fff;
+            padding: 80px 40px;
+            border-radius: var(--r-xl);
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(3, 60, 190, 0.2);
+            position: relative;
+            overflow: hidden;
+            margin-top: 40px;
+        }
+
+        .vision-box h3 {
+            font-size: 1.8rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .vision-box::before {
+            content: "“";
+            position: absolute;
+            top: -20px;
+            left: 40px;
+            font-size: 15rem;
+            opacity: 0.15;
+            font-family: serif;
+        }
+
+        /* MISSION */
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .mission-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: var(--r-lg);
+            padding: 40px 30px;
+            transition: all 0.3s ease;
+            border-bottom: 4px solid transparent;
+        }
+
+        .mission-card:hover {
+            transform: translateY(-10px);
+            border-bottom-color: var(--brand);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .mission-title {
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: var(--brand);
+            margin-bottom: 15px;
+        }
+
+        .mission-desc {
+            font-size: .88rem;
+            color: var(--text2);
+            line-height: 1.8;
+        }
+
+        /* DIFFERENCE - Split Contrast */
+        .diff-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            margin-top: 50px;
+            border-radius: var(--r-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .diff-box {
+            padding: 50px;
+            background: #fff;
+        }
+
+        .diff-box.brand-bg {
+            background: var(--brand);
+            color: #fff;
+        }
+
+        .diff-title {
+            font-weight: 800;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+
+        .diff-box ul {
+            list-style: none;
+            padding: 0;
+            font-size: .95rem;
+            line-height: 2.2;
+        }
+
+        .diff-box ul li::before {
+            content: "→";
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        /* WORKFLOW */
+        .workflow {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            margin-top: 48px;
+        }
+
+        .step-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: var(--r-lg);
+            padding: 35px 20px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .step-card:hover { border-color: var(--brand); }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--brand);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-weight: 800;
+            font-size: 1.2rem;
+        }
+
+        /* BENEFITS SCROLL */
+        .benefits-scroll {
+            display: flex;
+            overflow-x: auto;
+            gap: 25px;
+            padding: 20px 0 40px;
+            scrollbar-width: thin;
+            scrollbar-color: var(--brand) transparent;
+        }
+
+        .benefit-card {
+            min-width: 320px;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: var(--r-lg);
+            padding: 35px;
+            box-shadow: var(--shadow);
+            flex-shrink: 0;
+        }
+
+        /* MSME SECTION */
+        .msme-section {
+            text-align: center;
+            padding: 100px 0;
+            background: linear-gradient(to bottom, #fff, var(--brand-light));
+            border-radius: 100px 100px 0 0;
+        }
+
+        .msme-badge svg {
+            filter: drop-shadow(0 10px 15px rgba(3, 60, 190, 0.1));
+            transition: 0.5s ease;
+        }
+
+        .msme-badge:hover svg { transform: scale(1.1); }
+
+        /* RESPONSIVE */
+        @media(max-width:900px){
+            .why-grid, .mission-grid, .diff-grid { grid-template-columns: 1fr; }
+            .diff-grid { gap: 20px; box-shadow: none; }
+            .diff-box { border-radius: var(--r-lg); }
+            .msme-section { border-radius: 40px 40px 0 0; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="nav-placeholder"></div>
+
+    <section>
+        <div class="container">
+                <div>
+                    <span class="section-label">Why We Started</span>
+                    <h2 class="section-title">The Problem We Couldn't Ignore</h2><br>
+                    <p>Students graduate with theoretical knowledge but often struggle to execute real work in professional environments. Companies expect productivity, yet most contributors lack structured execution exposure. This disconnect between knowledge and execution became the foundation of AMUX. We created a Virtual Industry model where contributors don't just learn - they execute real workflows inside structured teams.</p>
+                </div>
+            </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <section>
+        <div class="container">
+            <div style="text-align:center" class="fade-up">
+                <span class="section-label">Our Vision</span>
+            </div>
+
+            <div class="vision-box fade-up">
+                <h3>Transforming contributors into industry-ready professionals through real execution environments - not simulations.</h3>
+                <p>Our vision is to create a system where contributors build real work experience before entering the professional world.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <section>
+        <div class="container">
+            <div style="text-align:center" class="fade-up">
+                <span class="section-label">Our Mission</span>
+                <h2 class="section-title">How We Deliver Our Vision</h2>
+            </div>
+
+            <div class="mission-grid">
+                <div class="mission-card fade-up">
+                    <div class="mission-title">Create Real Work Environments</div>
+                    <div class="mission-desc">We design structured execution systems that mirror professional workflows and team collaboration.</div>
+                </div>
+                <div class="mission-card fade-up">
+                    <div class="mission-title">Build Measurable Contributors</div>
+                    <div class="mission-desc">Every contributor builds proof of work, performance records, and execution experience.</div>
+                </div>
+                <div class="mission-card fade-up">
+                    <div class="mission-title">Bridge Industry & Talent</div>
+                    <div class="mission-desc">We connect execution-ready contributors with real opportunities and partnerships.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <section>
+        <div class="container">
+            <span class="section-label">What Makes Us Different</span>
+            <h2 class="section-title">Traditional vs AMUX</h2>
+
+            <div class="diff-grid fade-up">
+                <div class="diff-box">
+                    <div class="diff-title" style="color: var(--text2);">Traditional Training</div>
+                    <ul>
+                        <li>Theory Focused</li>
+                        <li>Assignment Based</li>
+                        <li>Simulated Tasks</li>
+                        <li>Certificate Oriented</li>
+                    </ul>
+                </div>
+                <div class="diff-box brand-bg" style="color: white;">
+                    <div class="diff-title" >AMUX Virtual Industry</div>
+                    <ul>
+                        <li style="color: white;">Execution Driven</li>
+                        <li style="color: white;">Workflow Based</li>
+                        <li style="color: white;">Real Team Collaboration</li>
+                        <li style="color: white;">Work Experience Focused</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <section>
+        <div class="container">
+            <span class="section-label">How It Works</span>
+            <h2 class="section-title">Virtual Industry Workflow</h2>
+
+            <div class="workflow fade-up">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <strong>Join Workspace</strong>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <strong>Work in Teams</strong>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <strong>Execute Tasks</strong>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <strong>Build Products</strong>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">5</div>
+                    <strong>Get Opportunities</strong>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <section>
+        <div class="container">
+            <span class="section-label">Collaboration Opportunities</span>
+            <h2 class="section-title">Who Can Work With Us</h2>
+
+            <div class="benefits-scroll fade-up">
+                <div class="benefit-card">
+                    <div class="benefit-title">For Industries</div>
+                    <ul>
+                        <li>Tie up to access trained contributors.</li>
+                        <li>Hire best-performing interns.</li>
+                        <li>Reduce hiring risk via performance selection.</li>
+                        <li>Get execution-ready contributors.</li>
+                    </ul>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-title">For Schools</div>
+                    <ul>
+                        <li>Tie up for technical insights.</li>
+                        <li>Introduce real-world technologies.</li>
+                        <li>Awareness and career sessions.</li>
+                    </ul>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-title">For Colleges</div>
+                    <ul>
+                        <li>Industry exposure workspace.</li>
+                        <li>Work experience certificates.</li>
+                        <li>Technical workshops & Hackathons.</li>
+                        <li>Internship opportunities.</li>
+                    </ul>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-title">For Individuals</div>
+                    <ul>
+                        <li>Work inside structured teams.</li>
+                        <li>Gain real workflow experience.</li>
+                        <li>Build multiple skill sets.</li>
+                        <li>Earn verified experience proof.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="msme-section fade-up">
+        <div class="container">
+            <div class="msme-badge">
+                <svg viewBox="0 0 200 200" width="120">
+                    <circle cx="100" cy="100" r="90" fill="none" stroke="#033cbe" stroke-width="6"/>
+                    <text x="50%" y="45%" text-anchor="middle" font-size="26" font-weight="700" fill="#033cbe">MSME</text>
+                    <text x="50%" y="65%" text-anchor="middle" font-size="10" fill="#333">GOVT. OF INDIA</text>
+                </svg>
+            </div>
+            <h2 class="section-title">Registered & Certified by MSME</h2>
+            <p class="msme-text">AMUX Virtual Industry is officially registered and certified under the Micro, Small & Medium Enterprises (MSME) framework of the Government of India.</p>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="partials.js"></script>
+    <script src="main.js"></script>
+    <script>
+        // Simple Scroll Animation Observer
+        const observerOptions = { threshold: 0.15 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    </script>
+
+</body>
+</html>
