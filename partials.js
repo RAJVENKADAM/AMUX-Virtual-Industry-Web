@@ -50,8 +50,8 @@
       <div class="footer-col-title">Connect</div>
 <ul class="footer-links">
   <li><a href="https://www.linkedin.com/company/amux-advisory/" target="_blank">LinkedIn</a></li>
-  <li><a href="https://www.instagram.com/amux_advisory?igsh=MXB0a3hnbWJjbnVncA==" target="_blank">Instagram</a></li>
-  <li><a href="https://youtube.com/@amuxadvisory?si=t4c1TF_r3zTqZmuA" target="_blank">YouTube</a></li>
+  <li><a href="https://www.instagram.com/amux.official?igsh=MXB0a3hnbWJjbnVncA==" target="_blank">Instagram</a></li>
+  <li><a href="https://youtube.com/@amux_media?si=-KbHipSPjzFwSEd-"_blank">YouTube</a></li>
   <li><a href="https://whatsapp.com/channel/0029Vb7sObbI7Be6B5h2UA0T" target="_blank">Whatsapp Channel</a></li>
 </ul>
   </div>
