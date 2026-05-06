@@ -60,31 +60,101 @@
 }
 
 /* stat cards */
+/* ── HERO STATS → INLINE STRIP (NO CARDS) ── */
 .hero-stats {
-  display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;
-  margin-top: 64px;
-  animation: fadeUp .75s .45s ease both;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+  max-width: 720px;
+  margin: 56px auto 0;
+
+  padding: 14px 18px;
+
+  gap: 10px;
 }
+
+/* EACH ITEM */
 .stat-card {
-  background: #fff; border: 1px solid var(--border);
-  border-radius: var(--r); padding: 20px 30px; text-align: center;
-  box-shadow: var(--shadow); min-width: 156px;
-  transition: all .26s; position: relative; overflow: hidden;
+  flex: 1;
+  text-align: center;
+  padding: 4px 6px;
 }
-.stat-card::before {
-  content: ''; position: absolute; inset: 0;
-  background: var(--grad-soft); opacity: 0; transition: opacity .26s;
-}
-.stat-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
-.stat-card:hover::before { opacity: 1; }
+
+/* NUMBER / MAIN TEXT */
 .stat-card .num {
-  font-size: 1.65rem; font-weight: 800;
-  background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  background-clip: text; line-height: 1.1; display: block; position: relative; z-index: 1;
+  display: block;
+  font-weight: 800;
+  line-height: 1.1;
+
+  /* Fluid typography */
+  font-size: clamp(1.1rem, 2.5vw, 1.8rem);
+
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
+
+/* LABEL */
 .stat-card .label {
-  font-size: .75rem; font-weight: 600; color: var(--text2); margin-top: 5px;
-  position: relative; z-index: 1; letter-spacing: .02em;
+  display: block;
+  margin-top: 4px;
+
+  font-weight: 600;
+  color: var(--text2);
+
+  /* Fluid typography */
+  font-size: clamp(.6rem, 1.4vw, .8rem);
+  letter-spacing: .04em;
+}
+
+/* OPTIONAL: subtle separators between items */
+.stat-card:not(:last-child) {
+  border-right: 1px solid var(--border);
+}
+
+/* ── TABLET ── */
+@media (max-width: 900px) {
+  .hero-stats {
+    max-width: 100%;
+    padding: 12px 10px;
+  }
+}
+
+/* ── MOBILE ── */
+@media (max-width: 640px) {
+  .hero-stats {
+    gap: 6px;
+    padding: 10px 6px;
+  }
+
+  .stat-card {
+    padding: 2px 4px;
+  }
+
+  .stat-card .num {
+    font-size: clamp(0.95rem, 3.5vw, 1.2rem);
+  }
+
+  .stat-card .label {
+    font-size: clamp(.55rem, 2.5vw, .7rem);
+  }
+}
+
+/* ── VERY SMALL DEVICES ── */
+@media (max-width: 400px) {
+  .hero-stats {
+    gap: 4px;
+  }
+
+  .stat-card .num {
+    font-size: 0.9rem;
+  }
+
+  .stat-card .label {
+    font-size: 0.55rem;
+  }
 }
 
 /* ── VIRTUAL INDUSTRY ── */
@@ -343,8 +413,18 @@
   .hero { padding: 72px 0 60px; }
   .hero-actions { flex-direction: column; align-items: stretch; }
   .btn-primary, .btn-secondary { justify-content: center; }
-  .hero-stats { gap: 12px; }
-  .stat-card { min-width: 130px; padding: 16px 20px; }
+  .hero-stats {
+    gap: 12px;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .stat-card {
+    min-width: 0;
+    padding: 16px 14px;
+    flex: 1 1 0;
+  }
+
   .services-grid { grid-template-columns: 1fr; }
   .vi-pills { display: none; }
   .virtual-inner { grid-template-columns: 1fr; }
