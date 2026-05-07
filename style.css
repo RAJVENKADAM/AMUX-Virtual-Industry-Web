@@ -288,9 +288,11 @@ section { padding: 52px 0; }
    ═══════════════════════════════════════════ */
 
 .services-wrapper {
-    padding: 100px 0;
+    /* Avoid stacked spacing with global `section { padding: 52px 0; }` */
+    padding-top: 50px;
     background: #ffffff;
 }
+
 
 .section-header {
     text-align: center;
