@@ -128,7 +128,7 @@
         .diff-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            margin-top: 50px;
+            margin-top: 10px;
             border-radius: var(--r-xl);
             overflow: hidden;
             box-shadow: var(--shadow-xl);
@@ -197,24 +197,55 @@
         }
 
         /* BENEFITS SCROLL */
-        .benefits-scroll {
-            display: flex;
-            overflow-x: auto;
-            gap: 25px;
-            padding: 20px 0 40px;
-            scrollbar-width: thin;
-            scrollbar-color: var(--brand) transparent;
-        }
+        .benefits-scroll{
+    display:grid;
+    grid-template-columns: repeat(3, minmax(280px, 360px));
+    gap:24px;
+    margin-top:40px;
+    justify-content:center;
+}
 
-        .benefit-card {
-            min-width: 320px;
-            background: #fff;
-            border: 1px solid var(--border);
-            border-radius: var(--r-lg);
-            padding: 35px;
-            box-shadow: var(--shadow);
-            flex-shrink: 0;
-        }
+/* Make last card centered when alone in second row */
+.benefits-scroll .benefit-card:last-child:nth-child(4){
+    grid-column: 2 / 3;
+}
+
+.benefit-card{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:var(--r-lg);
+    padding:32px 28px;
+    box-shadow:var(--shadow);
+    transition:0.3s ease;
+    width:100%;
+}
+
+.benefit-card:hover{
+    transform:translateY(-6px);
+    border-color:var(--brand);
+}
+
+/* Tablet */
+@media(max-width: 992px){
+    .benefits-scroll{
+        grid-template-columns: repeat(2, minmax(260px, 360px));
+    }
+
+    .benefits-scroll .benefit-card:last-child:nth-child(4){
+        grid-column:auto;
+    }
+}
+
+/* Mobile */
+@media(max-width: 600px){
+    .benefits-scroll{
+        grid-template-columns:1fr;
+    }
+
+    .benefit-card{
+        padding:24px;
+    }
+}
 
         /* MSME SECTION */
         .msme-section {
@@ -300,11 +331,11 @@
 
     <section>
         <div class="container">
-            <span class="section-label">What Makes Us Different</span>
-            <h2 class="section-title">Traditional vs AMUX</h2>
-
+            
+<span class="section-label">What Makes Us Different</span>
             <div class="diff-grid fade-up">
                 <div class="diff-box">
+                    
                     <div class="diff-title" style="color: var(--text2);">Traditional Training</div>
                     <ul>
                         <li>Theory Focused</li>
@@ -365,16 +396,8 @@
             <span class="section-label">Collaboration Opportunities</span>
             <h2 class="section-title">Who Can Work With Us</h2>
 
-            <div class="benefits-scroll fade-up">
-                <div class="benefit-card">
-                    <div class="benefit-title">For Industries</div>
-                    <ul>
-                        <li>Tie up to access trained contributors.</li>
-                        <li>Hire best-performing interns.</li>
-                        <li>Reduce hiring risk via performance selection.</li>
-                        <li>Get execution-ready contributors.</li>
-                    </ul>
-                </div>
+            <div class="work-with-us-scroll benefits-scroll fade-up">
+                
                 <div class="benefit-card">
                     <div class="benefit-title">For Schools</div>
                     <ul>
@@ -407,13 +430,6 @@
 
     <section class="msme-section fade-up">
         <div class="container">
-            <div class="msme-badge">
-                <svg viewBox="0 0 200 200" width="120">
-                    <circle cx="100" cy="100" r="90" fill="none" stroke="#033cbe" stroke-width="6"/>
-                    <text x="50%" y="45%" text-anchor="middle" font-size="26" font-weight="700" fill="#033cbe">MSME</text>
-                    <text x="50%" y="65%" text-anchor="middle" font-size="10" fill="#333">GOVT. OF INDIA</text>
-                </svg>
-            </div>
             <h2 class="section-title">Registered & Certified by MSME</h2>
             <p class="msme-text">AMUX Virtual Industry is officially registered and certified under the Micro, Small & Medium Enterprises (MSME) framework of the Government of India.</p>
         </div>
