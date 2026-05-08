@@ -48,10 +48,22 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
+/* HIDE SCROLLBAR ENTIRE WEBSITE */
 
-::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-track { background: var(--bg2); }
-::-webkit-scrollbar-thumb { background: var(--brand); border-radius: 99px; }
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar{
+    display:none;
+}
+
+/* Firefox */
+html{
+    scrollbar-width:none;
+}
+
+/* IE & old Edge */
+body{
+    -ms-overflow-style:none;
+}
 
 /* ── UTILITIES ── */
 .container { max-width: 90%; margin: 0 auto; padding: 0 12px; }
@@ -616,57 +628,81 @@ margin-bottom:8px;
 /* BENEFITS — HORIZONTAL SCROLL */
 
 .benefits-scroll{
-display:flex;
-overflow-x:auto;
-gap:18px;
-margin-top:44px;
-padding-bottom:10px;
-scroll-snap-type:x mandatory;
+  display:flexbox;
+  
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px;
+  margin-top:44px;
+  padding-bottom:0;
+  overflow:visible; /* do not hide content */
 }
 
-.benefits-scroll::-webkit-scrollbar{
-height:6px;
+.benefits-scroll::-webkit-scrollbar{ 
+  height:0;
 }
 
-.benefits-scroll::-webkit-scrollbar-thumb{
-background:rgba(0,0,0,.2);
-border-radius:99px;
+.benefits-scroll::-webkit-scrollbar-thumb{ 
+  background:transparent;
+  border-radius:99px;
 }
 
 .benefit-card{
-min-width:300px;
-max-width:320px;
-background:#fff;
-border:1px solid var(--border);
-border-radius:var(--r-lg);
-padding:24px 22px;
-box-shadow:var(--shadow);
-scroll-snap-align:start;
-transition:.25s;
+  /* Flex-wrap cards: each row fills available width */
+  
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:var(--r-lg);
+  padding:24px 22px;
+  box-shadow:var(--shadow);
+  transition:.25s;
+}
+
+/* >= 1024px: 3 per row (laptop/large tablet) */
+@media (min-width: 1024px){
+  .benefit-card{ flex:0 0 calc((100% - 2 * 10px) / 3); }
+}
+
+/* >= 900px safety: still keep 3 per row (prevents dropping to 2 cards too early) */
+@media (min-width: 900px){
+  .benefit-card{ flex:0 0 calc((100% - 2 * 10px) / 3); }
+}
+
+
+
+/* 561px - 999px: 2 per row */
+@media (min-width: 561px) and (max-width: 999px){
+  .benefit-card{ flex:0 0 calc((100% - 1 * 18px) / 2); }
+}
+
+/* 0 - 560px: 1 per row */
+@media (max-width: 560px){
+  .benefit-card{ flex:0 0 100%; }
 }
 
 .benefit-card:hover{
-transform:translateY(-4px);
-box-shadow:var(--shadow-lg);
+  transform:translateY(-4px);
+  box-shadow:var(--shadow-lg);
 }
 
 .benefit-title{
-font-weight:700;
-font-size:.92rem;
-margin-bottom:10px;
+  font-weight:700;
+  font-size:.92rem;
+  margin-bottom:10px;
 }
 
 .benefit-card ul{
-padding-left:18px;
-margin:0;
+  padding-left:18px;
+  margin:0;
 }
 
 .benefit-card li{
-font-size:.83rem;
-color:var(--text2);
-line-height:1.7;
-margin-bottom:6px;
+  font-size:.83rem;
+  color:var(--text2);
+  line-height:1.7;
+  margin-bottom:6px;
 }
+
 
 
 /* MSME */
