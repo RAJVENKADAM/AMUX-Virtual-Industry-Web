@@ -274,7 +274,7 @@ footer {
 }
 
 /* section padding */
-section { padding: 52px 0; }
+section { padding: 5px 0; }
 .section-divider {
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--border) 30%, var(--border) 70%, transparent);
@@ -292,7 +292,7 @@ section { padding: 52px 0; }
   .ham { display: flex; }
   .footer-inner { grid-template-columns: 1fr; gap: 32px; }
   .footer-bottom { flex-direction: column; align-items: flex-start; }
-  section { padding: 40px 0; }
+  section { padding: 10px 0; }
   .page-hero { padding: 60px 12px 52px; }
 }
 /* ═══════════════════════════════════════════
@@ -301,7 +301,7 @@ section { padding: 52px 0; }
 
 .services-wrapper {
     /* Avoid stacked spacing with global `section { padding: 52px 0; }` */
-    padding-top: 50px;
+    padding-top: 5px;
     background: #ffffff;
 }
 
