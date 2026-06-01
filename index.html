@@ -3,86 +3,325 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AMUX — Virtual Industry</title>
+<title>AMUX</title>
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="index.css">
 
 </head>
+<style>
+:root{
+    --glass: rgba(255,255,255,.8);
+    --brand-light:#f0f4ff;
+}
+
+/* ===================================
+   ANIMATION
+=================================== */
+
+.fade-up{
+    opacity:0;
+    transform:translateY(30px);
+    transition:all .7s cubic-bezier(.16,1,.3,1);
+}
+
+.fade-up.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* ===================================
+   INDEX PAGE SPACING
+=================================== */
+
+.index-reduce-spaces section{
+    padding:18px 0;
+}
+
+.virtual-section{
+    padding-top:20px !important;
+    padding-bottom:20px !important;
+}
+
+.services-wrapper{
+    padding-top:10px !important;
+}
+
+.container{
+    max-width:95%;
+    width:100%;
+    margin:auto;
+    padding:0 20px;
+}
+
+/* ===================================
+   FULL WIDTH BANNERS
+=================================== */
+
+.ad16x9{
+    width:100vw;
+    margin-left:calc(50% - 50vw);
+    margin-right:calc(50% - 50vw);
+    overflow:hidden;
+    margin-top:0;
+    margin-bottom:0;
+}
+
+.ad16x9 img{
+    width:100%;
+    height:auto;
+    display:block;
+}
+
+/* ===================================
+   VISION CARD
+=================================== */
+
+.vision-box{
+    background:var(--grad);
+    color:#fff;
+    padding:55px 35px;
+    border-radius:28px;
+    text-align:center;
+    box-shadow:0 20px 40px rgba(3,60,190,.18);
+    position:relative;
+    overflow:hidden;
+    margin-top:0;
+}
+
+.vision-box::before{
+    content:"“";
+    position:absolute;
+    top:-40px;
+    left:30px;
+    font-size:12rem;
+    opacity:.12;
+    font-family:serif;
+}
+
+.vision-box h3{
+    font-size:1.55rem;
+    font-weight:700;
+    line-height:1.6;
+    position:relative;
+    z-index:2;
+}
+
+.vision-box p{
+    margin-top:15px;
+    opacity:.92;
+    font-size:.95rem;
+}
+
+/* ===================================
+   PROGRAM CARDS
+=================================== */
+
+.capability-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+    margin-top:25px;
+    margin-bottom:35px;
+}
+
+.cap-card{
+    border-radius:20px;
+    transition:.3s ease;
+}
+
+.cap-card:hover{
+    transform:translateY(-6px);
+}
+
+.cap-info{
+    padding:24px;
+}
+
+.cap-info h3{
+    margin-bottom:10px;
+}
+
+.cap-info p{
+    margin-bottom:0;
+}
+
+/* ===================================
+   PARTNERSHIP BANNER
+=================================== */
+
+.outreach-banner{
+    margin-top:10px;
+    padding:40px;
+    border-radius:24px;
+}
+
+.outreach-items{
+    gap:20px;
+}
+
+.o-item p{
+    line-height:1.7;
+}
+
+/* ===================================
+   SECTION LABEL
+=================================== */
+
+.section-label{
+    margin-bottom:10px;
+}
+
+/* ===================================
+   TITLE SPACING
+=================================== */
+
+.section-title{
+    margin-bottom:10px;
+}
+
+.section-desc{
+    margin-bottom:0;
+}
+
+/* ===================================
+   DIVIDER
+=================================== */
+
+.section-divider{
+    margin:0 auto;
+}
+
+/* ===================================
+   REMOVE EXTRA EMPTY SPACE
+=================================== */
+
+.virtual-inner{
+    margin-bottom:0;
+}
+
+.virtual-text{
+    margin-bottom:0;
+}
+
+.outreach-intro h2{
+    margin-top:10px;
+}
+
+/* ===================================
+   MOBILE
+=================================== */
+
+@media(max-width:992px){
+
+    .capability-grid{
+        grid-template-columns:1fr;
+        gap:18px;
+    }
+
+    .outreach-banner{
+        grid-template-columns:1fr;
+        padding:30px;
+        gap:25px;
+    }
+
+    .outreach-items{
+        grid-template-columns:1fr;
+    }
+
+    .vision-box{
+        padding:40px 24px;
+    }
+
+    .vision-box h3{
+        font-size:1.3rem;
+    }
+}
+
+@media(max-width:640px){
+
+    .container{
+        padding:0 16px;
+    }
+
+    .index-reduce-spaces section{
+        padding:14px 0;
+    }
+
+    .vision-box{
+        padding:32px 18px;
+        border-radius:20px;
+    }
+
+    .vision-box h3{
+        font-size:1.15rem;
+        line-height:1.5;
+    }
+
+    .vision-box p{
+        font-size:.85rem;
+    }
+
+    .cap-info{
+        padding:20px;
+    }
+
+    .outreach-banner{
+        padding:24px;
+        border-radius:18px;
+    }
+}
+    </style>
 <body>
 
 <div id="nav-placeholder"></div>
 
-<!-- ══════════ HERO ══════════ -->
-<section class="hero">
-  <div class="hero-glow-1"></div>
-  <div class="hero-glow-2"></div>
-  <div class="hero-glow-3"></div>
-  <div class="container hero-inner">
-
-    <div class="hero-badge">
-      <span class="badge-dot"></span>
-      Virtual Industry
+<!-- index-only spacing wrapper -->
+<style>
+  /* keep wrapper affecting only below content in index page */
+  .index-reduce-spaces { width: 100%; }
+</style>
+<div class="ad16x9">
+        <img src="assets/ad1.png" alt="Ad">
     </div>
-
-    <h1 class="hero-title">
-      Transform Students into<br>
-      <span class="grad-text">Industry Contributors</span>
-    </h1>
-
-    <p class="hero-desc">
-      AMUX builds structured workspaces where contributors collaborate, execute real workflows, and develop professional execution discipline.
-    </p>
-
-    <div class="hero-actions">
-      <a href="workspaces.html" class="btn-primary">
-        Explore Workspaces
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </a>
-      <a href="#Services" class="btn-secondary">Discover Services</a>
-    </div>
-
-  </div>
-</section>
-
-<div class="section-divider"></div>
-
+    
 <!-- ══════════ VIRTUAL INDUSTRY ══════════ -->
+<div class="index-reduce-spaces">
 <section class="virtual-section fade-up">
+
   <div class="container virtual-inner">
     <div class="virtual-text">
-      <span class="section-label">What We Do</span>
       <h2 class="section-title" style="margin-bottom:18px;">
-        Understanding the<br><span class="grad-text">Virtual Industry Model</span>
+        A Progressive Student<br><span class="grad-text">Transformation Ecosystem</span>
       </h2>
       <p class="section-desc">
-        A Virtual Industry replicates professional workflows inside a structured workspace environment. Contributors execute tasks, collaborate within teams, and engage in real workflow cycles that mirror production environments.
+        Every generation learns differently. While academic education builds knowledge and foundations, students also need opportunities to develop communication, leadership, collaboration, creativity, practical skills, and real-world experience. AMUX was created to provide that complementary ecosystem.
       </p>
     </div>
     
   </div>
 </section>
-<section id="Services" class="services-wrapper">
-    <div class="container">
-        <div class="section-header fade-up">
-            <span class="section-label">Our Ecosystem</span>
-            <h2 class="section-title">Professional <span class="grad-text">Execution</span></h2>
-            <p class="section-desc">Bridging the gap between academic theory and industrial reality through role-based production.</p>
+<section>
+<div class="container">
+            <div class="vision-box fade-up">
+                <h3>Our Vision is to create opportunities that help students grow into confident, capable, responsible, and future-ready individuals.</h3>
+                <p>“Learning becomes meaningful when students are given opportunities to build, create and contribute.” </p>
+            </div>
         </div>
+    </section>
+<hr class="section-divider" style="margin-top:20px; margin-bottom:40px; width: 20%;color: grey;">
+<section id="Services" class="services-wrapper">
+
+    <div class="container">
+            <span class="section-label">Our Programs</span>
+       
 
         <div class="capability-grid">
             
             <div class="cap-card fade-up">
     
                 <div class="cap-info">
-                  <div class="svc-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
-          </svg>
-        </div>
-                    <h3>Product Development</h3>
-                    <p>Architecting scalable digital systems and technical products for measurable business impact.</p>
+                    <h3>STP for Schools</h3>
+                    <p>STP (Student Transformation Program) helps schools provide structured developmental experiences that strengthen confidence, communication, leadership, responsibility, teamwork, and future readiness among students. </p>
                 </div>
             </div>
 
@@ -90,15 +329,11 @@
                 
                 <div class="cap-info">
                   <div class="svc-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            
-            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-            <circle cx="9" cy="7" r="4"/>
-            <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
-          </svg>
         </div>
-                    <h3>Production Workspaces</h3>
-                    <p>High-fidelity environments simulating professional workflows and role-based deliverables.</p>
+                    <h3>VIP for Colleges</h3>
+                    <p>VIP - Virtual Industry Program for colleges is designed to complement academic learning by enabling students to 
+participate in hands-on experiences that promote teamwork, problem-solving, product 
+thinking, project execution, practical exposure and real-world experiences.</p>
                     
                 </div>
             </a>
@@ -107,42 +342,44 @@
                 
                 <div class="cap-info">
                   <div class="svc-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
-            <path d="M6 12v5c3 3 9 3 12 0v-5"/>
-          </svg>
         </div>
-                    <h3>Internship Programs</h3>
-                    <p>Metric-driven pathways guiding talent from onboarding into internal execution roles.</p>
+                    <h3>Workspaces for Individuals</h3>
+                    <p>Workspaces provide execution-based learning environments where students can explore their interests, collaborate with peers, gain practical experience, and potentially progress to internship opportunities based on performance.  </p>
                     
                 </div>
             </div>
         </div>
 
+        
+
         <div class="outreach-banner fade-up">
             <div class="outreach-intro">
-                <span class="section-label dark-label">Pipeline</span>
-                <h2>Institutional <br>Outreach</h2>
+                <span class="section-label dark-label">Partnership Vision</span>
+                <h2>Our Partnership <br>Goals</h2>
             </div>
             <div class="outreach-items">
                 <div class="o-item">
-                    <h4>Campus Awareness</h4>
-                    <p>Introducing execution-level readiness to academic bodies.</p>
+                    <h4>Schools</h4>
+    <p>Supporting schools in developing confident, responsible, and future-ready students through structured programs focused on leadership, communication, discipline, and personal growth.</p>
+
                 </div>
                 <div class="o-item">
-                    <h4>Technical Seminars</h4>
-                    <p>Expert deliveries on current industrial standards.</p>
-                </div>
+                    <h4>Colleges</h4>
+    <p>Supporting colleges in providing practical learning experiences through industry-inspired seminars, collaborative execution environments, internship pathways, and product development opportunities.</p>
+</div>
                 <div class="o-item">
-                    <h4>Partnerships</h4>
-                    <p>Strategic alignment for talent bridge creation.</p>
-                </div>
+                    <h4>Institutions</h4>
+    <p>Creating long-term partnerships that enhance student engagement, development, and experiential learning alongside academic education.</p>
+</div>
             </div>
         </div>
     </div>
 </section>
 
+</div> <!-- /index-reduce-spaces -->
+
 <div id="footer-placeholder"></div>
+
 
 <script src="partials.js"></script>
 <script src="main.js"></script>
