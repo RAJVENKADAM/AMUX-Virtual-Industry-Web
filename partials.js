@@ -9,13 +9,12 @@
   <div class="nav-inner">
     <a class="nav-logo" href="index.html">
       <span class="nav-logo-main">AMUX</span>
-      <span class="nav-logo-sub">Virtual Industry</span>
+      <span class="nav-logo-sub">An Ecosystem</span>
     </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html">Home</a></li>
-      <li><a href="workspaces.html">Workspaces</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="connects.html" class="nav-cta">Connects</a></li>
+      <li><a href="programs.html">Programs</a></li>
+      <li><a href="connects.html">Connects</a></li>
     </ul>
     <div class="ham" id="ham">
       <span></span><span></span><span></span>
@@ -24,8 +23,7 @@
 </nav>
 <div class="mobile-menu" id="mobileMenu">
   <a href="index.html">Home</a>
-  <a href="workspaces.html">Workspaces</a>
-  <a href="about.html">About</a>
+  <a href="programs.html">Programs</a>
   <a href="connects.html">Connects</a>
 </div>`;
 
@@ -34,15 +32,14 @@
   <div class="footer-inner">
     <div>
       <div class="footer-brand-name">AMUX</div>
-      <div class="footer-brand-sub">Virtual Industry</div>
-      <p class="footer-desc">Bridging Individuals to Real Execution Workflows.</p>
+      <div class="footer-brand-sub">An Ecosystem</div>
+      <p class="footer-desc">Transform the students from listeners to Creators.</p>
     </div>
     <div>
       <div class="footer-col-title">Navigation</div>
       <ul class="footer-links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="workspaces.html">Workspaces</a></li>
-        <li><a href="about.html">About</a></li>
+        <li><a href="programs.html">Programs</a></li>
         <li><a href="connects.html">Connects</a></li>
       </ul>
     </div>
@@ -56,8 +53,8 @@
 </ul>
   </div>
   <div class="footer-bottom">
-    <span class="footer-copy">© 2026 AMUX Virtual Industry. All rights reserved.</span>
-    <span class="footer-made">Built for the <span>future workforce</span></span>
+    <span class="footer-copy">© 2026 AMUX -  A Progressive Student Transformation Ecosystem. All rights reserved.</span>
+    <span class="footer-made">Built for the <span>future Creators</span></span>
   </div>
 </footer>`;
 
