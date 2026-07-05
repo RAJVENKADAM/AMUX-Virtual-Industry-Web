@@ -1,0 +1,477 @@
+/* =========================
+   AMUX Green Prompt – Page Styles
+   ========================= */
+
+/* Because you already define .container, body, fonts, etc. in global.css,
+   this file only handles page-specific layout and components. */
+
+/* ===== HERO ===== */
+.gp-hero .container,
+.gp-section .container{
+
+    max-width:1160px;
+    width:90%;
+    padding:0 12px;
+    margin:auto;
+
+}
+.gp-hero {
+  padding: 72px 0 52px;
+  background: var(--bg3);
+  border-bottom: 1px solid var(--border);
+}
+
+.gp-hero-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  gap: 32px;
+  align-items: center;
+  width: 100%;
+}
+
+/* Left side */
+.gp-hero-title {
+  margin-bottom: 12px;
+  word-wrap: break-word;
+}
+
+.gp-hero-desc {
+  margin-bottom: 18px;
+}
+
+.gp-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.gp-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 18px;
+  border-radius: 999px;
+  background: var(--brand);
+  color: #fff;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: var(--shadow);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease-out, box-shadow 0.2s ease-out, transform 0.2s ease-out;
+  max-width: 100%;
+}
+
+.gp-btn-primary:hover {
+  background: var(--brand-d);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-1px);
+}
+
+.gp-hero-footnote {
+  font-size: 0.8rem;
+  color: var(--text3);
+  max-width: 460px;
+}
+
+/* Right side metric card */
+.gp-hero-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.gp-metric-card {
+  width: 100%;
+  max-width: 340px;
+  background: #fff;
+  border-radius: var(--r-lg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  padding: 16px 18px 18px;
+}
+
+.gp-metric-card h2 {
+  font-size: 1.06rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.gp-metric-value {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--brand);
+  padding: 8px 12px;
+  border-radius: 12px;
+  background: var(--bg2);
+  margin-bottom: 8px;
+}
+
+.gp-metric-desc {
+  font-size: 0.84rem;
+  color: var(--text3);
+}
+
+/* ===== SECTION BASE ===== */
+
+.gp-section {
+  padding: 40px 0;
+  background: var(--bg);
+  width: 100%;
+}
+
+.gp-section-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.1fr);
+  gap: 32px;
+  width: 100%;
+}
+
+.gp-section-title {
+  margin-bottom: 6px;
+}
+
+.gp-section-desc {
+  font-size: 0.9rem;
+  color: var(--text2);
+}
+
+/* Only left side used in your HTML for setup; right side is empty here. */
+.gp-section-left,
+.gp-section-right {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ===== INSTALLATION STEPS ===== */
+
+.gp-steps-list {
+  list-style: none;
+  padding: 0;
+  margin: 18px 0 0;
+}
+
+.gp-step {
+  margin-bottom: 20px;
+  padding: 14px 14px 16px;
+  border-radius: var(--r);
+  background: #fff;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  max-width: 100%;
+}
+
+.gp-step-header {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
+
+.gp-step-number {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--brand);
+}
+
+.gp-step-title {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.gp-step-text {
+  font-size: 0.86rem;
+  color: var(--text2);
+  margin-bottom: 8px;
+}
+
+/* Code blocks */
+.gp-step pre {
+  margin: 0;
+}
+
+/* Global style for code on this page */
+pre {
+  margin: 8px 0 10px;
+  padding: 14px 16px;
+  border-radius: var(--r);
+  background: #0b1120;
+  border: 1px solid #1f2937;
+
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: pre-wrap;      /* Allow wrapping */
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+pre code {
+  display: block;
+  white-space: inherit;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: #cbd5f5;
+}
+
+/* ===== GUIDELINES / BEFORE-AFTER ===== */
+
+.gp-guidelines {
+  background: var(--bg3);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+/* In your HTML, only gp-section-right is used for guidelines */
+.gp-section-note {
+  font-size: 0.86rem;
+  color: var(--text3);
+}
+
+/* ===== FAQ ===== */
+
+.gp-roadmap-faq .gp-feature-list {
+  margin-top: 10px;
+}
+
+.gp-faq-item h3 {
+  font-size: 0.96rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.gp-faq-item p {
+  font-size: 0.88rem;
+  color: var(--text2);
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+/* Tablet and small laptops */
+@media (max-width: 960px) {
+  .gp-hero {
+    padding: 60px 0 40px;
+  }
+
+  .gp-hero-inner {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .gp-hero-right {
+    justify-content: flex-start;
+    margin-top: 12px;
+  }
+
+  .gp-section-inner {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .gp-section {
+    padding: 32px 0;
+  }
+
+  .gp-metric-card {
+    max-width: 100%;
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .gp-hero {
+    padding: 52px 0 32px;
+  }
+
+  .gp-hero-inner {
+    gap: 20px;
+  }
+
+  .gp-hero-title {
+    font-size: clamp(1.9rem, 6vw, 2.3rem);
+  }
+
+  .gp-hero-actions {
+    flex-direction: row;
+    gap: 8px;
+  }
+
+  .gp-section-inner {
+    gap: 20px;
+  }
+
+  .gp-step {
+    padding: 12px 12px 14px;
+  }
+
+  /* Prevent horizontal overflow */
+  pre {
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+
+  .container {
+    max-width: 100%;
+    padding: 0 12px;
+  }
+}
+
+/* Very small devices */
+@media (max-width: 420px) {
+  .gp-hero {
+    padding: 48px 0 26px;
+  }
+
+  .gp-hero-inner {
+    gap: 16px;
+  }
+
+  .gp-metric-value {
+    font-size: 1.6rem;
+  }
+
+  .gp-section {
+    padding: 28px 0;
+  }
+
+  .gp-hero-actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .gp-btn-primary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .gp-step-text,
+  .gp-section-desc {
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+}
+.gp-section-inner{
+    align-items:stretch;
+}
+
+.gp-section-left,
+.gp-section-right{
+    display:flex;
+    flex-direction:column;
+}
+
+.gp-impact-card{
+    height:100%;
+    background:#ffffff;
+    color:#7e7e7e;
+    border-radius:22px;
+    border:0.2px solid #dfdfdf;
+    padding:34px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    
+}
+
+.gp-impact-label{
+    display:inline-block;
+    width:max-content;
+    padding:6px 14px;
+    border-radius:999px;
+    background:rgba(201, 229, 255, 0.575);
+    color:#186dff;
+    font-size:.72rem;
+    font-weight:700;
+    letter-spacing:.12em;
+    margin-bottom:18px;
+}
+
+.gp-impact-card h3{
+    font-size:1.7rem;
+    line-height:1.3;
+    margin-bottom:18px;
+    color:#000000;
+}
+
+.gp-impact-card p{
+    color:rgba(82, 82, 82, 0.72);
+    line-height:1.8;
+    margin-bottom:30px;
+}
+
+.gp-impact-stats{
+    display:grid;
+    gap:16px;
+    margin-bottom:30px;
+}
+
+.gp-stat{
+    padding:18px;
+    border-radius:14px;
+    background:rgba(71, 233, 144, 0.37);
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.gp-stat h4{
+    color:#505050;
+    font-size:1rem;
+    margin-bottom:6px;
+}
+
+.gp-stat span{
+    color:rgba(49, 49, 49, 0.7);
+    font-size:.9rem;
+}
+
+.gp-impact-card blockquote{
+    font-size:1rem;
+    line-height:1.8;
+    font-style:italic;
+    color:#464646;
+    border-left:3px solid #3d7cff;
+    padding-left:16px;
+    margin:24px 0;
+}
+
+.gp-impact-card small{
+    color:rgba(77, 77, 77, 0.822);
+    line-height:1.6;
+}
+
+@media(max-width:960px){
+
+    .gp-impact-card{
+        margin-top:24px;
+        height:auto;
+    }
+
+}
+.video-container{
+    width:85%;
+    aspect-ratio:16/9;
+    margin:40px auto;   /* Centers the container */
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:var(--shadow-lg);
+}
+
+.video-container iframe{
+    width:100%;
+    height:100%;
+    border:none;
+}

@@ -1,0 +1,243 @@
+/*
+  Global styles shared across all pages.
+  Keep this file limited to:
+  - font import
+  - CSS variables
+  - base element styles
+  - reusable utility classes
+  - layout components (navbar/footer) if they are injected via partials
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --brand:     #033cbe;
+  --brand-d:   #022d8f;
+  --brand-l:   #1a52d4;
+  --brand-ll:  #2e68e8;
+  --accent:    #0f52ff;
+  --brand-glow: rgba(3,60,190,.18);
+
+  --bg:        #ffffff;
+  --bg2:       #204bf528;
+  --bg3:       #eef1fb;
+  --border:    #dde2f0;
+  --border-b:  #c8d0ea;
+
+  --text:      #0a0f2e;
+  --text2:     #4a5578;
+  --text3:     #8a96bb;
+
+  --grad:      linear-gradient(135deg, #033cbe 0%, #1a52d4 60%, #0f52ff 100%);
+  --grad-soft: linear-gradient(135deg, rgba(3,60,190,.07) 0%, rgba(15,82,255,.05) 100%);
+
+  --shadow-sm: 0 1px 4px rgba(3,60,190,.07), 0 1px 2px rgba(0,0,0,.04);
+  --shadow:    0 4px 20px rgba(3,60,190,.12), 0 1px 4px rgba(0,0,0,.05);
+  --shadow-lg: 0 8px 36px rgba(3,60,190,.18), 0 2px 8px rgba(0,0,0,.06);
+  --shadow-xl: 0 20px 64px rgba(3,60,190,.22), 0 4px 16px rgba(0,0,0,.08);
+
+  --r:    14px;
+  --r-lg: 20px;
+  --r-xl: 28px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Hide scrollbar */
+::-webkit-scrollbar { display: none; }
+html { scrollbar-width: none; }
+body { -ms-overflow-style: none; }
+
+/* Utilities */
+.container { max-width: 90%; margin: 0 auto; padding: 0 12px; }
+
+.grad-text {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-label {
+  display: inline-block;
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--brand);
+  background: rgba(3,60,190,.09);
+  border: 1px solid rgba(3,60,190,.2);
+  padding: 4px 14px;
+  border-radius: 99px;
+  margin-bottom: 14px;
+}
+
+.section-title {
+  font-size: clamp(1.7rem, 3vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1.16;
+  letter-spacing: -.025em;
+  color: var(--text);
+}
+
+.section-desc {
+  font-size: .97rem;
+  color: var(--text2);
+  line-height: 1.78;
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(26px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .65s ease, transform .65s ease;
+}
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+
+/* Navbar */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: rgba(255,255,255,.93);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  transition: box-shadow .25s;
+}
+nav.scrolled { box-shadow: 0 2px 28px rgba(3,60,190,.12); }
+
+.nav-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 66px;
+}
+
+.nav-logo { display: flex; flex-direction: column; text-decoration: none; gap: 1px; }
+.nav-logo-main {
+  font-weight: 900;
+  font-size: 1.28rem;
+  letter-spacing: -.03em;
+  line-height: 1;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.nav-logo-sub {
+  font-size: .6rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--text3);
+  line-height: 1;
+}
+
+.nav-links { display: flex; align-items: center; gap: 2px; list-style: none; }
+.nav-links a {
+  text-decoration: none;
+  color: var(--text2);
+  font-size: .84rem;
+  font-weight: 500;
+  padding: 7px 15px;
+  border-radius: 9px;
+  transition: all .2s;
+  white-space: nowrap;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--brand); background: rgba(3,60,190,.08); }
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 66px;
+  left: 0;
+  right: 0;
+  background: rgba(255,255,255,.98);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 24px 20px;
+  flex-direction: column;
+  gap: 2px;
+  z-index: 199;
+}
+.mobile-menu.open { display: flex; animation: fadeUp .2s ease; }
+.mobile-menu a {
+  text-decoration: none;
+  color: var(--text2);
+  font-size: .9rem;
+  font-weight: 500;
+  padding: 11px 14px;
+  border-radius: 9px;
+  transition: all .2s;
+}
+.mobile-menu a:hover { color: var(--brand); background: rgba(3,60,190,.07); }
+
+.ham { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; }
+.ham span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: all .25s; }
+.ham.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.ham.open span:nth-child(2) { opacity: 0; }
+.ham.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Footer */
+footer {
+  background: #001953;
+  padding: 64px 12px 32px;
+}
+.footer-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.7fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(255,255,255,.15);
+}
+.footer-brand-name {
+  font-weight: 900;
+  font-size: 1.4rem;
+  letter-spacing: -.03em;
+  color: #fff;
+  margin-bottom: 3px;
+}
+.footer-brand-sub {
+  font-size: .62rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.5);
+  margin-bottom: 16px;
+}
+.footer-desc { font-size: .88rem; color: rgba(255,255,255,.65); line-height: 1.75; max-width: 280px; }
+.footer-col-title { font-weight: 700; font-size: .82rem; color: #fff; margin-bottom: 18px; letter-spacing: .04em; }
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+.footer-links a { text-decoration: none; color: rgba(255,255,255,.6); font-size: .87rem; transition: color .2s; font-weight: 400; }
+.footer-links a:hover { color: #fff; }
+.footer-bottom { max-width: 1160px; margin: 28px auto 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+.footer-copy { font-size: .8rem; color: rgba(255,255,255,.45); }
+
+@media (max-width: 640px) {
+  .nav-links { display: none; }
+  .ham { display: flex; }
+  .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
+}
+
